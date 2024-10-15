@@ -15,8 +15,10 @@ Rispondi alle seguenti domande:
 
 **🌐 URL completo della risorsa alla quale sto cercando di accedere**: [https://me.stecca.dev/](https://me.stecca.dev/)
 
-1. **📥 Metodo HTTP**: Il metodo utilizzato per accedere alla risorsa principale è il metodo **GET**.
+1. **📥 Metodo HTTP**: Il metodo utilizzato per accedere alla risorsa principale è il metodo **GET**. 
 
+    ![image](https://github.com/user-attachments/assets/e25faabd-3575-4bc2-a59c-f697860a56a4)
+<hr>
 2. **📊 Status Code**: Il codice restituito dal server è **304 (Not Modified)**. Questo codice indica che la risorsa richiesta è già presente nella cache del browser.
 
 3. **📤 Response Headers**:
@@ -32,6 +34,8 @@ Rispondi alle seguenti domande:
    - **X-Fastly-Request-ID**: Identificatore unico per la richiesta, specifico di Fastly CDN.
    - **X-Served-By**: Identifica il server che ha servito la risposta.
    - **X-Timer**: Fornisce informazioni sui tempi di elaborazione della richiesta.
+     <hr>
+   ![image](https://github.com/user-attachments/assets/b99532cf-c211-4acd-8343-3d1c15851fcc)
 
    **📥 Request Headers**:
    - **authority**: Specifica il dominio del server a cui si sta facendo la richiesta (in questo caso, me.stecca.dev).
@@ -111,7 +115,7 @@ Dati:
 
 2. **Connessioni TCP seriali non persistenti**:
 - Tempo di trasferimento per oggetto: **t_oggetto = L / C = 200 / 100 = 2 s**
-- Tempo totale: **T_totale = N * (t_oggetto + RTT) = 11 * (2 + 0.1) = 24.1 s**
+- Tempo totale: **T_totale = N * (t_oggetto + RTT) = 11 * (2 + 0.1) = 23.1 s**
 
 ## Esercizio 4: Condivisione del collegamento e connessioni TCP
 
