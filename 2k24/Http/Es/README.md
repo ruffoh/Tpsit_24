@@ -19,7 +19,8 @@ Rispondi alle seguenti domande:
 
     ![image](https://github.com/user-attachments/assets/e25faabd-3575-4bc2-a59c-f697860a56a4)
 <hr>
-2. **📊 Status Code**: Il codice restituito dal server è **304 (Not Modified)**. Questo codice indica che la risorsa richiesta è già presente nella cache del browser.
+
+2. **📊 Status Code** : Il codice restituito dal server è **304 (Not Modified)**. Questo codice indica che la risorsa richiesta è già presente nella cache del browser.
 
 3. **📤 Response Headers**:
    - **Age**: Indica il tempo trascorso dalla generazione della risposta dal server.
