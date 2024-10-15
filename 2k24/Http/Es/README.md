@@ -67,23 +67,19 @@ Due risposte plausibili del server HTTP (solo la status line):
 1. **📄 Risorsa non modificata**:
 HTTP/1.1 304 Not Modified
 
-markdown
-Copia codice
+
 2. **📁 Risorsa trovata e mostrata**:
 HTTP/1.1 200 OK
 
-markdown
-Copia codice
+
 3. **❌ Risorsa non trovata**:
 HTTP/1.1 404 NOT FOUND
 
-markdown
-Copia codice
+
 4. **🚫 Risorsa Proibita**:
 HTTP/1.1 403 FORBIDDEN
 
-markdown
-Copia codice
+
 
 ### Comportamento del Proxy
 
@@ -128,7 +124,7 @@ Dati:
 - Velocità effettiva per il flusso HTTP: **r = C / n = 1000 / 10 = 100 kbit/s**
 
 1. **Singola connessione TCP persistente**:Tempo di trasferimento per oggetto: Toggetto = L / r = 400 / 100 = 4 s
-   Tempo totale: ttotale = (12 toggetto) + RTT = (12 4) + 0.15 = 48.15 s
+   Tempo totale: ttotale = (12 toggetto) + RTT = (12 * 4) + 0.15 = 48.15 s
 
 2.  **Connessioni TCP parallele non persistenti:**
  - Tempo di trasferimento per oggetto: Toggetto = L / r = 400 / 100 = 4 s
@@ -144,8 +140,8 @@ Dati:
  -  Capacità del collegamento proxy-server: c = 100 Mb/s = 100,000 kbit/s
  -  Tempo di risposta per cache hit: Thit = L / C = 800 / 1,000,000 = 0.0008 s
  -  Tempo di risposta per cache miss: Tmiss = (L / c) + (L / C) = (800 / 100,000) + (800 / 1,000,000) = 0.0088 s
-  - Ritardo medio: Tmedio = P Thit + Q tmiss = 0.4 0.0008 + 0.6 0.0088 = 0.00560 s = 5.60 ms
-  - Quindi, il ritardo medio sperimentato dal generico client è di 5.60 millisecondi
+  - Ritardo medio: Tmedio = P Thit + Q tmiss = 0.4 * 0.0008 + 0.6 * 0.0088 = 0.00512 s = 5.12 ms
+  - Quindi, il ritardo medio sperimentato dal generico client è di 5.12 millisecondi
 
 
 
