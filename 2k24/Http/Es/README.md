@@ -19,7 +19,8 @@ Rispondi alle seguenti domande:
 
     ![image](https://github.com/user-attachments/assets/e25faabd-3575-4bc2-a59c-f697860a56a4)
 <hr>
-2. **📊 Status Code**: Il codice restituito dal server è **304 (Not Modified)**. Questo codice indica che la risorsa richiesta è già presente nella cache del browser.
+
+2. **📊 Status Code** : Il codice restituito dal server è **304 (Not Modified)**. Questo codice indica che la risorsa richiesta è già presente nella cache del browser.
 
 3. **📤 Response Headers**:
    - **Age**: Indica il tempo trascorso dalla generazione della risposta dal server.
@@ -67,23 +68,19 @@ Due risposte plausibili del server HTTP (solo la status line):
 1. **📄 Risorsa non modificata**:
 HTTP/1.1 304 Not Modified
 
-markdown
-Copia codice
+
 2. **📁 Risorsa trovata e mostrata**:
 HTTP/1.1 200 OK
 
-markdown
-Copia codice
+
 3. **❌ Risorsa non trovata**:
 HTTP/1.1 404 NOT FOUND
 
-markdown
-Copia codice
+
 4. **🚫 Risorsa Proibita**:
 HTTP/1.1 403 FORBIDDEN
 
-markdown
-Copia codice
+
 
 ### Comportamento del Proxy
 
@@ -127,12 +124,13 @@ Dati:
 - Numero totale di flussi: **n = 10** (Numero flussi utili + 9)
 - Velocità effettiva per il flusso HTTP: **r = C / n = 1000 / 10 = 100 kbit/s**
 
-1. **Singola connessione TCP persistente**:Tempo di trasferimento per oggetto: Toggetto = L / r = 400 / 100 = 4 s
-   Tempo totale: ttotale = (12 toggetto) + RTT = (12 4) + 0.15 = 48.15 s
+1. **Singola connessione TCP persistente**:
+   - Tempo di trasferimento per oggetto: Toggetto = L / r = 400 / 100 = 4 s
+   - Tempo totale: ttotale = (12 toggetto) + RTT = (12 * 4) + 0.15 = 48.15 s
 
-2.  **Connessioni TCP parallele non persistenti:**
- - Tempo di trasferimento per oggetto: Toggetto = L / r = 400 / 100 = 4 s
--  Tempo totale: Ttotale = Toggetto + RTT = 4 + 0.15 = 4.15 s 
+3.  **Connessioni TCP parallele non persistenti:**
+ - Tempo di trasferimento per oggetto: Toggetto = L / r = 400 / 50 = 8 s
+-  Tempo totale: Ttotale = Toggetto + RTT = 8 + 0.15 = 8.15 s 
 
   
   ## Esercizio HTTP 5:  HTTP Caching
@@ -144,8 +142,8 @@ Dati:
  -  Capacità del collegamento proxy-server: c = 100 Mb/s = 100,000 kbit/s
  -  Tempo di risposta per cache hit: Thit = L / C = 800 / 1,000,000 = 0.0008 s
  -  Tempo di risposta per cache miss: Tmiss = (L / c) + (L / C) = (800 / 100,000) + (800 / 1,000,000) = 0.0088 s
-  - Ritardo medio: Tmedio = P Thit + Q tmiss = 0.4 0.0008 + 0.6 0.0088 = 0.00560 s = 5.60 ms
-  - Quindi, il ritardo medio sperimentato dal generico client è di 5.60 millisecondi
+  - Ritardo medio: Tmedio = P Thit + Q tmiss = 0.4 * 0.0008 + 0.6 * 0.0088 = 0.00512 s = 5.12 ms
+  - Quindi, il ritardo medio sperimentato dal generico client è di 5.12 millisecondi
 
 
 
