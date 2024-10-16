@@ -128,8 +128,8 @@ Dati:
    Tempo totale: ttotale = (12 toggetto) + RTT = (12 * 4) + 0.15 = 48.15 s
 
 2.  **Connessioni TCP parallele non persistenti:**
- - Tempo di trasferimento per oggetto: Toggetto = L / r = 400 / 100 = 4 s
--  Tempo totale: Ttotale = Toggetto + RTT = 4 + 0.15 = 4.15 s 
+ - Tempo di trasferimento per oggetto: Toggetto = L / r = 400 / 50 = 8 s
+-  Tempo totale: Ttotale = Toggetto + RTT = 8 + 0.15 = 8.15 s 
 
   
   ## Esercizio HTTP 5:  HTTP Caching
