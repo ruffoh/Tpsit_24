@@ -59,7 +59,7 @@ Codice di stato: 200 OK indica una richiesta andata a buon fine.
 
 
 ## Esercizio 5 
-[Header](https://github.com/ruffoh/Tpsit_24/blob/main/2k24/Http/Curl/esercizio/header.txt)
+[Header](https://github.com/ruffoh/Tpsit_24/blob/main/2k24/Http/Curl/esercizio/headers.txt)
 ``` php
 HTTP/1.1 200 OK
 Date: Wed, 16 Oct 2024 07:20:21 GMT
