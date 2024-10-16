@@ -124,10 +124,11 @@ Dati:
 - Numero totale di flussi: **n = 10** (Numero flussi utili + 9)
 - Velocità effettiva per il flusso HTTP: **r = C / n = 1000 / 10 = 100 kbit/s**
 
-1. **Singola connessione TCP persistente**:Tempo di trasferimento per oggetto: Toggetto = L / r = 400 / 100 = 4 s
-   Tempo totale: ttotale = (12 toggetto) + RTT = (12 * 4) + 0.15 = 48.15 s
+1. **Singola connessione TCP persistente**:
+   - Tempo di trasferimento per oggetto: Toggetto = L / r = 400 / 100 = 4 s
+   - Tempo totale: ttotale = (12 toggetto) + RTT = (12 * 4) + 0.15 = 48.15 s
 
-2.  **Connessioni TCP parallele non persistenti:**
+3.  **Connessioni TCP parallele non persistenti:**
  - Tempo di trasferimento per oggetto: Toggetto = L / r = 400 / 50 = 8 s
 -  Tempo totale: Ttotale = Toggetto + RTT = 8 + 0.15 = 8.15 s 
 
