@@ -103,8 +103,8 @@
                 <peso>500 grammi</peso>
             </pomodoro> 
             <cassa>
-                <tipo> acqua naturale</tipo
-                <numero-bottiglie>6</numero-bottiglie>
+                <tipo> acqua naturale</tipo>
+                <numero-bottiglie> 6</numero-bottiglie>
             </cassa>           
         </articoli>
     </carrello>
