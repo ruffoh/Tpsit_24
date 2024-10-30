@@ -102,9 +102,10 @@
                 <colore>Rosso</colore>
                 <peso>500 grammi</peso>
             </pomodoro> 
-            <cassa-acqua>
+            <cassa>
+                <tipo> acqua naturale</tipo
                 <numero-bottiglie>6</numero-bottiglie>
-            </cassa-acqua>           
+            </cassa>           
         </articoli>
     </carrello>
 </ordine>
