@@ -1,3 +1,5 @@
+## Http
+- Generale
 1. **Differenza tra il protocollo HTTP 1.0 e HTTP 1.1**  
    HTTP 1.0 crea una nuova connessione per ogni richiesta dal client al server, mentre HTTP 1.1 introduce il concetto di "keep-alive". Questo significa che la connessione può rimanere aperta e essere riutilizzata per più richieste, migliorando la velocità di caricamento delle pagine.
 
@@ -22,3 +24,5 @@
    - **DELETE** elimina una risorsa.  
    - **TRACE** mostra il percorso che una richiesta ha seguito.  
    - **CONNECT** stabilisce un tunnel per una connessione sicura.
+## Curl 
+[Curl](https://github.com/ruffoh/Tpsit_24/tree/main/2k24/Http/Curl)
