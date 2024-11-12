@@ -1,7 +1,7 @@
 # Esercizio 3
 esercizio xml della serie a dal [testo](/2k24/Xml/esercizio/esercizio%203/XML%20-%20Gestione%20della%20stagione%20di%20Serie%20A%202024.pdf)
 
-```
+``` xml
 <?xml version="1.0" encoding="UTF-8"?>
 <SerieA>
     <data_inizio>20 agosto 2024</data_inizio>
