@@ -1,5 +1,3 @@
----
-
 **Codice Client (`client.java`):**
 
 * **Creazione del Socket:**
