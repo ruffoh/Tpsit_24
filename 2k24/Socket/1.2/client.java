@@ -4,7 +4,7 @@ import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.Socket;
 
-public class IntClient {
+public class client {
     public static void main(String[] args) {
         try (Socket socket = new Socket("127.0.0.1", 9999)) {
             System.out.println("Connessione al server stabilita");
