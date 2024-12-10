@@ -1,48 +1,28 @@
-# **Codice Server (IntServer.java)**
+# **README: Invio di una Stringa al Server**
 
+Questo file illustra come funziona l'invio di una stringa da un client a un server usando Java. Il server utilizza un buffer per leggere i dati e risponde invertendo la stringa ricevuta.
+
+---
+
+## **Invio di una Stringa**
+
+### **Cosa fa il Codice:**
+1. **Lettura della Stringa:** 
+   - Il server utilizza un `BufferedReader` per leggere i dati dal flusso di input del socket.
+   - Il buffer migliora l'efficienza nella gestione dei dati, leggendo blocchi di caratteri invece di un carattere alla volta.
+
+2. **Elaborazione della Stringa:** 
+   - Il server controlla se la stringa ricevuta è vuota o nulla.
+   - Inverte la stringa utilizzando il metodo `reverseString`.
+
+3. **Invio della Risposta:**
+   - La stringa invertita viene inviata al client usando un `PrintWriter`, che gestisce il flusso di output.
+
+---
+
+### **Estratto del Codice**
+
+#### **Lettura della Stringa dal Client**
 ```java
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
-import java.net.ServerSocket;
-import java.net.Socket;
-
-public class IntServer {
-    public static void main(String[] args) {
-        try (ServerSocket serverSocket = new ServerSocket(9999)) {
-            System.out.println("Server in ascolto...");
-
-            while (true) {
-                try (Socket socket = serverSocket.accept()) {
-                    System.out.println("Connessione accettata da: " + socket.getInetAddress());
-
-                    // Lettura dei dati dal client
-                    BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-                    String ricevuto = reader.readLine();
-
-                    if (ricevuto == null || ricevuto.isEmpty()) {
-                        System.out.println("Nessun dato ricevuto.");
-                    } else {
-                        System.out.println("Server ha ricevuto: " + ricevuto);
-
-                        // Inversione della stringa e invio al client
-                        String risposta = reverseString(ricevuto);
-                        PrintWriter writer = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()), true);
-                        writer.println(risposta);
-                        System.out.println("Risposta inviata al client: " + risposta);
-                    }
-                } catch (Exception e) {
-                    System.err.println("Errore nella comunicazione con il client: " + e.getMessage());
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static String reverseString(String str) {
-        return new StringBuilder(str).reverse().toString();
-    }
-}
-```
+BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+String parola = reader.readLine(); // Legge la stringa inviata dal client
