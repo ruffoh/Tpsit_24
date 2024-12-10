@@ -1,5 +1,3 @@
-Ecco la spiegazione del codice Java in italiano, come richiesto:
-
 ---
 
 **Codice Client (`client.java`):**
