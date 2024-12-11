@@ -10,9 +10,9 @@ public class Client {
         try (Socket socket = new Socket("127.0.0.1", 9999)) {
             System.out.println("Connessione al server stabilita");
             Scanner in = new Scanner(System.in);
-            System.out.println("Inserisci la parola:  ");
-             String parola = in.nextLine();
-             System.out.println("Hai inserito la parola: "+ parola);
+            System.out.println("Inserisci la parola:  ");                   
+             String parola = in.nextLine();                                 //Input 
+             System.out.println("Hai inserito la parola: "+ parola);        
             in.close();
 
             // Invio della parola al server

@@ -25,7 +25,7 @@ public class Server {
                         System.out.println("Server ha ricevuto: " + parola);
 
                         // Inversione della stringa e invio risposta al client
-                        int risposta = parola.length();
+                        int risposta = parola.length();         // ottiene la lunghezza della stringa
                         PrintWriter writer = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()), true);
                         writer.println(risposta);
                         System.out.println("La lunghezza dalla parola ricevuta è: " + risposta);
