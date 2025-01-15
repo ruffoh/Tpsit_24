@@ -13,7 +13,7 @@ public class Client {
         try (Socket socket = new Socket(host, port)) {
             System.out.println("Connessione al server " + host + " sulla porta " + port);
 
-            // Lettura input da tastiera
+            // input da tastiera
             Scanner scanner = new Scanner(System.in);
             System.out.print("Inserisci una stringa: ");
             String parola = scanner.nextLine();
@@ -27,12 +27,12 @@ public class Client {
                 return;
             }
 
-            // Invio dati al server
+            // invio dati -> server
             PrintWriter writer = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()), true);
             writer.println(parola + "," + numero);
             System.out.println("Dati inviati al server: " + parola + "," + numero);
 
-            // Lettura della risposta dal server
+            // lettura  risposta del server
             BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             String risposta = reader.readLine();
 
