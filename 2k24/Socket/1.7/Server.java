@@ -4,6 +4,7 @@ import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.Random;
 
 public class Server {
     public static void main(String[] args) {
@@ -14,39 +15,26 @@ public class Server {
                 try (Socket socket = serverSocket.accept()) {
                     System.out.println("Connessione accettata da: " + socket.getInetAddress());
 
-                    // Lettura della stringa e del numero random inviati dal client
+                    // Lettura della stringa inviata  client
                     BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-                    String input = reader.readLine();
+                    String parola = reader.readLine();
 
-                    if (input == null || input.isEmpty()) {
+                    if (parola == null || parola.isEmpty()) {
                         System.out.println("Non ho ricevuto nessun dato");
                     } else {
-                        System.out.println("Dati ricevuti dal client: " + input);
+                        System.out.println("Server ha ricevuto: " + parola);
 
-                        // Separazione della stringa e del numero
-                        String[] parts = input.split(",");
-                        if (parts.length == 2) {
-                            String parola = parts[0].trim();
-                            int numero;
-                            try {
-                                numero = Integer.parseInt(parts[1].trim());
-                            } catch (NumberFormatException e) {
-                                System.err.println("Il secondo dato non è un numero valido: " + parts[1]);
-                                continue;
-                            }
+                        //  numero casuale
+                        Random random = new Random();
+                        int numeroRandom = random.nextInt(100); // Numero casuale tra 0 e 99
 
-                            // Operazioni sui dati ricevuti
-                            String parolaInversa = reverseString(parola);
-                            int numeroIncrementato = numero + 10; // Aggiunge 10 al numero
+                        //   risposta
+                        String risposta = parola + " " + numeroRandom;
 
-                            // Preparazione e invio della risposta al client
-                            String risposta = parolaInversa + "," + numeroIncrementato;
-                            PrintWriter writer = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()), true);
-                            writer.println(risposta);
-                            System.out.println("Risposta inviata al client: " + risposta);
-                        } else {
-                            System.out.println("Formato dei dati errato. Aspettato: <stringa>,<numero>");
-                        }
+                        // Invio della risposta  
+                        PrintWriter writer = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()), true);
+                        writer.println(risposta);
+                        System.out.println("Risposta inviata al client: " + risposta);
                     }
                 } catch (Exception e) {
                     System.err.println("Errore nella comunicazione con il client: " + e.getMessage());
@@ -55,9 +43,5 @@ public class Server {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-
-    public static String reverseString(String str) {
-        return new StringBuilder(str).reverse().toString();
     }
 }

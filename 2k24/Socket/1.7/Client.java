@@ -13,26 +13,17 @@ public class Client {
         try (Socket socket = new Socket(host, port)) {
             System.out.println("Connessione al server " + host + " sulla porta " + port);
 
-            // input da tastiera
+            // Lettura input 
             Scanner scanner = new Scanner(System.in);
             System.out.print("Inserisci una stringa: ");
             String parola = scanner.nextLine();
 
-            System.out.print("Inserisci un numero: ");
-            int numero;
-            try {
-                numero = Integer.parseInt(scanner.nextLine());
-            } catch (NumberFormatException e) {
-                System.err.println("Input non valido per il numero. Uscita.");
-                return;
-            }
-
-            // invio dati -> server
+            // Invio stringa -> server
             PrintWriter writer = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()), true);
-            writer.println(parola + "," + numero);
-            System.out.println("Dati inviati al server: " + parola + "," + numero);
+            writer.println(parola);
+            System.out.println("Stringa inviata al server: " + parola);
 
-            // lettura  risposta del server
+            // Lettura della risposta 
             BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             String risposta = reader.readLine();
 
