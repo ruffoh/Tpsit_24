@@ -36,7 +36,7 @@ Socket socket = serverSocket.accept(); // Attende e accetta una connessione
 System.out.println("Connessione accettata da: " + socket.getInetAddress());
 3. Cosa accade se più client si connettono contemporaneamente?
 Nel codice attuale, il server accetta una connessione alla volta. Per gestire più client contemporaneamente, è necessario utilizzare i thread o un thread pool.
-
+``` java
 Modifica del codice per gestire più client:
 java
 Copia
@@ -66,14 +66,15 @@ private static void handleClient(Socket socket) {
         System.err.println("Errore durante la gestione del client: " + e.getMessage());
     }
 }
+```
 4. Cosa accade se il client tenta di connettersi a un server non attivo?
 Se il server non è in esecuzione o non è raggiungibile:
 
 Il client genera un'eccezione IOException.
 Il problema può essere gestito mostrando un messaggio di errore all'utente.
 Codice del Client con gestione degli errori:
+``` java
 java
-Copia
 Modifica
 try (Socket socket = new Socket("localhost", 9999)) {
     System.out.println("Connessione al server stabilita!");
@@ -81,12 +82,12 @@ try (Socket socket = new Socket("localhost", 9999)) {
 } catch (IOException e) {
     System.err.println("Errore di connessione: il server potrebbe non essere attivo.");
 }
+```
+
 Diagramma del flusso di connessione
 Ecco un diagramma che illustra il flusso di connessione tra client e server:
 
-arduino
-Copia
-Modifica
+> <!Diagramma >
 Client --> Richiesta di connessione --> ServerSocket
        <-- Connessione accettata <--- Server
 Client --> Invia dati (es. "5,10,15,20")
