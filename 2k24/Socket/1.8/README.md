@@ -1,4 +1,5 @@
-### **Domande**
+
+## **Domande**
 
 #### **TEORIA**
 1. Nel codice del server, perché si utilizza un oggetto `ServerSocket` per creare la connessione e qual è il ruolo del metodo `accept()` in questo contesto?  
@@ -9,38 +10,39 @@
 3. Cosa accade se il client tenta di connettersi a un server che non è in esecuzione o è irraggiungibile?  
    Come viene gestito questo scenario nel codice?
 
+---
 
-### Risposte
+## **Risposte**
 
-1. Perché si utilizza un oggetto ServerSocket?
-Un oggetto ServerSocket è essenziale per:
+#### 1. **Perché si utilizza un oggetto ServerSocket?**
 
-Ascoltare le richieste in arrivo su una porta specifica.
-Stabilire connessioni con i client creando un oggetto Socket dedicato a ciascun client.
-Esempio:
+Un oggetto `ServerSocket` è essenziale per:  
+- Ascoltare le richieste in arrivo su una porta specifica.  
+- Stabilire connessioni con i client, creando un oggetto `Socket` dedicato a ciascun client.  
 
-java
-Copia
-Modifica
+Esempio di utilizzo:  
+```java
 ServerSocket serverSocket = new ServerSocket(9999); // Avvia il server sulla porta 9999
-2. Qual è il ruolo del metodo accept()?
-Il metodo accept():
+```
 
-Blocca l'esecuzione del server fino a quando un client richiede una connessione.
-Restituisce un oggetto Socket per comunicare con il client.
-Esempio:
-java
-Copia
-Modifica
+#### 2. **Qual è il ruolo del metodo accept()?**
+
+Il metodo `accept()`:  
+- Blocca l'esecuzione del server fino a quando un client richiede una connessione.  
+- Restituisce un oggetto `Socket` per comunicare con il client.  
+
+Esempio:  
+```java
 Socket socket = serverSocket.accept(); // Attende e accetta una connessione
 System.out.println("Connessione accettata da: " + socket.getInetAddress());
-3. Cosa accade se più client si connettono contemporaneamente?
-Nel codice attuale, il server accetta una connessione alla volta. Per gestire più client contemporaneamente, è necessario utilizzare i thread o un thread pool.
-``` java
-Modifica del codice per gestire più client:
-java
-Copia
-Modifica
+```
+
+#### 3. **Cosa accade se più client si connettono contemporaneamente?**
+
+Nel codice attuale, il server accetta **una connessione alla volta**. Per gestire più client contemporaneamente, è necessario utilizzare i thread o un thread pool.  
+
+**Modifica del codice per gestire più client:**
+```java
 while (true) {
     Socket socket = serverSocket.accept(); // Accetta un client
     new Thread(() -> handleClient(socket)).start(); // Gestisce ogni client in un thread separato
@@ -67,15 +69,15 @@ private static void handleClient(Socket socket) {
     }
 }
 ```
-4. Cosa accade se il client tenta di connettersi a un server non attivo?
-Se il server non è in esecuzione o non è raggiungibile:
 
-Il client genera un'eccezione IOException.
-Il problema può essere gestito mostrando un messaggio di errore all'utente.
-Codice del Client con gestione degli errori:
-``` java
-java
-Modifica
+#### 4. **Cosa accade se il client tenta di connettersi a un server non attivo?**
+
+Se il server non è in esecuzione o non è raggiungibile:  
+- Il client genera un'eccezione `IOException`.  
+- Questo può essere gestito mostrando un messaggio di errore all'utente.  
+
+**Codice del client con gestione degli errori:**
+```java
 try (Socket socket = new Socket("localhost", 9999)) {
     System.out.println("Connessione al server stabilita!");
     // Operazioni di lettura/scrittura...
@@ -84,11 +86,18 @@ try (Socket socket = new Socket("localhost", 9999)) {
 }
 ```
 
-Diagramma del flusso di connessione
-Ecco un diagramma che illustra il flusso di connessione tra client e server:
+---
 
-> <!Diagramma >
-Client --> Richiesta di connessione --> ServerSocket
-       <-- Connessione accettata <--- Server
-Client --> Invia dati (es. "5,10,15,20")
-Server --> Calcola somma e risponde (es. "50")
+### **Diagramma di flusso**
+```mermaid
+flowchart TD
+    A[Client] -->|Richiesta di connessione| B[ServerSocket]
+    B -->|Connessione accettata| C[Server]
+    C -->|In attesa di dati dal Client| D[Calcolo della somma]
+    A -->|Invia dati es. 5,10,15,20| C
+    D -->|Risultato somma es. 50| A
+
+```
+
+---
+
