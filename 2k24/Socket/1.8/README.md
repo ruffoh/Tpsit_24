@@ -14,7 +14,7 @@
 
 ## **Risposte**
 
-#### 1. **Perché si utilizza un oggetto ServerSocket?**
+### 1. **Perché si utilizza un oggetto ServerSocket?**
 
 Un oggetto `ServerSocket` è essenziale per:  
 - Ascoltare le richieste in arrivo su una porta specifica.  
@@ -25,7 +25,7 @@ Esempio di utilizzo:
 ServerSocket serverSocket = new ServerSocket(9999); // Avvia il server sulla porta 9999
 ```
 
-#### 2. **Qual è il ruolo del metodo accept()?**
+### 2. **Qual è il ruolo del metodo accept()?**
 
 Il metodo `accept()`:  
 - Blocca l'esecuzione del server fino a quando un client richiede una connessione.  
@@ -37,7 +37,7 @@ Socket socket = serverSocket.accept(); // Attende e accetta una connessione
 System.out.println("Connessione accettata da: " + socket.getInetAddress());
 ```
 
-#### 3. **Cosa accade se più client si connettono contemporaneamente?**
+### 3. **Cosa accade se più client si connettono contemporaneamente?**
 
 Nel codice attuale, il server accetta **una connessione alla volta**. Per gestire più client contemporaneamente, è necessario utilizzare i thread o un thread pool.  
 

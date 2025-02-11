@@ -17,6 +17,7 @@ public class Client {
             Scanner scanner = new Scanner(System.in);
             System.out.print("Inserisci una stringa: ");
             String parola = scanner.nextLine();
+            scanner.close();
 
             // Invio stringa -> server
             PrintWriter writer = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()), true);
